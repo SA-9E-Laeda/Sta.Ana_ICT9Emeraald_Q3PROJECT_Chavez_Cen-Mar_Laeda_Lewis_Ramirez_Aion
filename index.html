@@ -243,7 +243,7 @@
           distance = goingTo - leavingFrom;
           fare = distance + basefare; 
           
-          document.getElementById("DisplayAns").innerHTML = fare + ".00";
+          document.getElementById("DisplayAns").innerHTML = "₱" + fare.toFixed(2);
     }
           //compute for discounted rate
         function discountFare(){
@@ -255,7 +255,7 @@
           disc_fare = .80 * (distance + basefare) ; 
           fare = disc_fare.toFixed(2);
           
-          document.getElementById("DisplayAns").innerHTML = fare;
+          document.getElementById("DisplayAns").innerHTML = "₱" + fare;
     }
       </script>
         
