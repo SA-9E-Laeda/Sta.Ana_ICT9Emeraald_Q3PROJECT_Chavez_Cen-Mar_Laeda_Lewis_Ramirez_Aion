@@ -235,28 +235,33 @@
             <p id="DisplayAns"></p>
         </center>
         <script>
-        function calculateFare(){
-          let leavingFrom, goingTo, basefare, distance, fare;
-          leavingFrom = document.getElementById("leavingFrom").value;
-          goingTo = document.getElementById("goingTo").value;
-          basefare = 13;
-          distance = goingTo - leavingFrom;
-          fare = distance + basefare; 
-          
-          document.getElementById("DisplayAns").innerHTML = "₱" + fare.toFixed(2);
-    }
-          //compute for discounted rate
-        function discountFare(){
-          let leavingFrom, goingTo, basefare, distance, disc_fare, fare;
-          leavingFrom = document.getElementById("leavingFrom").value;
-          goingTo = document.getElementById("goingTo").value;
-          basefare = 13;
-          distance = goingTo - leavingFrom;
-          disc_fare = .80 * (distance + basefare) ; 
-          fare = disc_fare.toFixed(2);
-          
-          document.getElementById("DisplayAns").innerHTML = "₱" + fare;
-    }
+          function calculateFare() {
+            let leavingFrom, goingTo, basefare, distance, fare;
+            leavingFrom = document.getElementById("leavingFrom").value;
+            goingTo = document.getElementById("goingTo").value;
+            basefare = 13;
+            distance = goingTo - leavingFrom;
+            fare = distance + basefare;
+
+             // Format fare with a currency symbol (e.g., $)
+            document.getElementById("DisplayAns").innerHTML = "₱" + fare.toFixed(2); // $ sign with 2 decimal places
+            }
+
+          // Compute for discounted rate
+          function discountFare() {
+            let leavingFrom, goingTo, basefare, distance, disc_fare, fare;
+            leavingFrom = document.getElementById("leavingFrom").value;
+            goingTo = document.getElementById("goingTo").value;
+            basefare = 13;
+            distance = goingTo - leavingFrom;
+            disc_fare = 0.80 * (distance + basefare); // 20% discount
+  
+            // Format discounted fare with a currency symbol (e.g., $)
+            fare = disc_fare.toFixed(2);
+
+            // Display the fare with currency symbol
+            document.getElementById("DisplayAns").innerHTML = "₱" + fare;
+            }
       </script>
         
       </div>
