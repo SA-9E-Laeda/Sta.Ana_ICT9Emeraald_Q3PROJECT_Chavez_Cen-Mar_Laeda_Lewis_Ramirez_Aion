@@ -86,7 +86,7 @@
     </div>
     <div class="col-md-4">
       <p class="animate__animated animate__rotateIn"><b>Got a problem?</b></p>
-      <form action="index.html">
+      <form id="feedbackForm" action="index.html">
         <label for="comment" class="animate__animated animate__zoomInDown animate__delay-1s"><b>Feedback</b><span style="color:red;">*</span></label>
         <br>
         <textarea id="comment" class="form-control animate__animated animate__fadeInDownBig" placeholder="Enter your feedback here..." cols=50 rows=6 required></textarea>
@@ -99,7 +99,7 @@
 
         <label for="Email" class="animate__animated animate__lightSpeedInLeft animate__delay-3s"><b>Email</b><span style="color:red;">*</span></label>
         <br>
-        <input type="email" class="form-control animate__animated animate__backInRight" required>
+        <input type="email" id="email" class="form-control animate__animated animate__backInRight" required>
         <br><br>
 
         <!-- Star Rating Section -->
@@ -116,7 +116,7 @@
         <br><br>
 
         <div class="d-grid">
-          <button type="submit" class="btn btn-success btn-block animate__animated animate__jackInTheBox" onclick="message()">Submit Feedback</button>
+          <button type="submit" class="btn btn-success btn-block animate__animated animate__jackInTheBox">Submit Feedback</button>
         </div>
       </form>
     </div>
@@ -148,6 +148,29 @@
           }
         });
       }
+
+      // Form validation
+      document.getElementById('feedbackForm').onsubmit = function(event) {
+        event.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const comment = document.getElementById('comment').value;
+        const name = document.querySelector('input[type="text"]').value;
+        const rating = document.getElementById('rating-value').value;
+
+        if (!email.includes('@')) {
+          alert('Please enter a valid email with "@" symbol.');
+          return false;
+        }
+
+        if (!comment || !name || !rating || rating == 0) {
+          alert('Please fill in all required fields.');
+          return false;
+        }
+
+        message();
+        return true;
+      };
     </script>
 
   </center>
